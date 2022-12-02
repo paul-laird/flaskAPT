@@ -18,8 +18,9 @@ mysql.init_app(app)
 @app.route("/add", methods=['GET', 'POST']) #Add Student
 def add():
   if request.method == 'POST':
-    name = request.data['name']
-    email = request.data['email']
+    d=json.loads(request.data)
+    name = d['name']
+    email = d['email']
     cur = mysql.connection.cursor() #create a connection to the SQL instance
     s='''INSERT INTO students(studentName, email) VALUES('{}','{}');'''.format(name,email)
     cur.execute(s)

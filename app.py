@@ -18,6 +18,7 @@ mysql.init_app(app)
 @app.route("/add", methods=['GET', 'POST']) #Add Student
 def add():
   if request.method == 'POST':
+    print(request.data)
     d=json.loads(request.data)
     name = d['name']
     email = d['email']

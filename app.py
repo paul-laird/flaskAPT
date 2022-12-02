@@ -20,6 +20,7 @@ def add():
   if request.method == 'POST':
     name = request.form['name']
     email = request.form['email']
+    print(name,email)
     cur = mysql.connection.cursor() #create a connection to the SQL instance
     s='''INSERT INTO students(studentName, email) VALUES('{}','{}');'''.format(name,email)
     cur.execute(s)

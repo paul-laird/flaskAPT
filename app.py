@@ -14,14 +14,16 @@ app.config['MYSQL_DB'] = 's'
 app.config['MYSQL_HOST'] = 'localhost' #for now
 mysql.init_app(app)
 
-@app.route("/add") #Add Student
+@app.route("/add", methods=['GET', 'POST']) #Add Student
 def add():
-  name = request.args.get('name')
-  email = request.args.get('email')
-  cur = mysql.connection.cursor() #create a connection to the SQL instance
-  s='''INSERT INTO students(studentName, email) VALUES('{}','{}');'''.format(name,email)
-  cur.execute(s)
-  mysql.connection.commit()
+  if request.method == 'POST':
+    name = request.args.get('name')
+    email = request.args.get('email')
+    cur = mysql.connection.cursor() #create a connection to the SQL instance
+    s='''INSERT INTO students(studentName, email) VALUES('{}','{}');'''.format(name,email)
+    cur.execute(s)
+    mysql.connection.commit()
+  else return render_template('add.html)
 
   return '{"Result":"Success"}'
 @app.route("/") #Default - Show Data

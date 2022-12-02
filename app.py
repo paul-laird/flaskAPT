@@ -23,7 +23,7 @@ def add():
     s='''INSERT INTO students(studentName, email) VALUES('{}','{}');'''.format(name,email)
     cur.execute(s)
     mysql.connection.commit()
-  else return render_template('add.html)
+  else return render_template('add.html')
 
   return '{"Result":"Success"}'
 @app.route("/") #Default - Show Data

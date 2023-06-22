@@ -14,7 +14,7 @@ CORS(app)
 
 @app.route("/test")#URL leading to method
 def test(): # Name of the method
- return("Hello World!<BR/>THIS IS A TEST!") #indent this line
+ return("Hello World!<BR/>THIS IS ANOTHER TEST!") #indent this line
 
 @app.route("/add", methods=['GET', 'POST']) #Add Student
 def add():

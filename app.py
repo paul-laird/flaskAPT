@@ -28,6 +28,7 @@ def add():
     print(name,email)
     cur = mysql.cursor() #create a connection to the SQL instance
     s='''INSERT INTO students(studentName, email) VALUES('{}','{}');'''.format(name,email)
+    print(s)
     cur.execute(s)
     mysql.commit()
   else:

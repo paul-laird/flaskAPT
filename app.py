@@ -16,6 +16,10 @@ CORS(app)
 def test(): # Name of the method
  return("Hello World!<BR/>THIS IS ANOTHER TEST!") #indent this line
 
+@app.route("/yest")#URL leading to method
+def yest(): # Name of the method
+ return("Hello World!<BR/>THIS IS YET ANOTHER TEST!") #indent this line
+
 @app.route("/add", methods=['GET', 'POST']) #Add Student
 def add():
   if request.method == 'POST':

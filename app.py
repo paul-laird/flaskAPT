@@ -12,6 +12,10 @@ CORS(app)
 # My SQL Instance configurations
 # Change the HOST IP and Password to match your instance configurations
 
+@app.route("/test")#URL leading to method
+def test(): # Name of the method
+ return("Hello World!<BR/>THIS IS A TEST!") #indent this line
+
 @app.route("/add", methods=['GET', 'POST']) #Add Student
 def add():
   if request.method == 'POST':
